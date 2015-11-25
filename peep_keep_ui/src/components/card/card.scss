@@ -1,0 +1,13 @@
+@import './../../styles/colors';
+
+.card {
+  background: $white;
+  padding: 20px 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+
+  .card {
+    border-left: 4px solid $lure-blue;
+  }
+}

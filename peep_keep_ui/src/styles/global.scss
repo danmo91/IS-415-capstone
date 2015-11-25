@@ -1,0 +1,45 @@
+@import './colors.scss';
+@import './mixins.scss';
+
+html {width: 100%}
+body {
+    background-color: $background-grey;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    color: $font-grey;
+    font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Sans;
+}
+h1 {font-size: 2em;  font-weight: 300; color: $font-grey;}
+h2 {font-size: 1.2em; color: $font-grey;}
+h3 {font-size: 1.2em;font-weight: 300; color: $font-grey;}
+h4 {font-size: 1.2em;font-weight: 300; color: $font-grey;}
+p {font-size: .8em; color: $font-grey;}
+@media (min-width: 768px) {
+  h1 {font-size: 2.5em;  font-weight: 300;}
+  h2 {font-size: 1.4em;}
+  h3 {font-size: 1.4em;}
+  p {font-size: .9em;}
+}
+@media (min-width: 1200px) {
+  h1 {font-size: 2.7em; font-weight: 300;}
+  h2 {font-size: 1.6em;}
+  h3 {font-size: 2em; font-weight: 300; margin: 40px 0;}
+  p {font-size: 1.1em;}
+}
+.lure-blue {
+  color: $lure-blue;
+}
+.btn-lure {
+  color: $white;
+  background-color: $lure-blue;
+  border: 1px solid darken($lure-blue, 5%);
+
+  &:hover {
+    background: darken($lure-blue, 10%);
+    color: darken($white, 5%);
+
+  @include transition(color 0.25s, background 0.25s);
+  }
+}

@@ -1,0 +1,13 @@
+@mixin transition($rules...) {
+	transition: $rules;
+	-o-transition: $rules;
+	-moz-transition: $rules;
+	-webkit-transition: $rules;
+}
+
+@mixin transform($rules...) {
+	transform: $rules;
+	-o-transform: $rules;
+	-moz-transform: $rules;
+	-webkit-transform: $rules;
+}
