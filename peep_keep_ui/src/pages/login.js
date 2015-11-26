@@ -57,7 +57,7 @@ let Login = React.createClass({
                         type="password" />
                     </div>
                     <div className="form-group col-xs-12">
-                      <input type="submit" className="btn btn-lure" value="Login" />
+                      <input type="submit" className="btn btn-primary" value="Login" />
                     </div>
                   </form>
                 </div>

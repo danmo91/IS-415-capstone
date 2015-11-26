@@ -1,4 +1,5 @@
 import React from 'react';
+import {RouteHandler, Link} from 'react-router';
 import './../styles/landing.scss'
 
 const Landing = React.createClass({
@@ -11,7 +12,7 @@ const Landing = React.createClass({
             <div className="col">
               <h1>Peep Keep</h1>
               <p className="description">Nothing is worse than forgetting someone's name.  With PeepKeep, you have all your names and faces in one place.</p>
-              <a className="btn btn-primary btn-lg" >Sign up</a>
+              <Link className="btn btn-primary btn-lg" to="/signup">Sign up</Link>
             </div>
           </div>
         </div>

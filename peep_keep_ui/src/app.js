@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import Landing from './pages/landing'
 import Navbar from './components/navbar/navbar'
 import Login from 'pages/login'
+import Signup from 'pages/signup'
 
 const App = React.createClass({
 
@@ -24,6 +25,7 @@ ReactDOM.render((
     <Route path='/' component={App} >
       <IndexRoute component={Landing} />
       <Route path='login' component={Login} />
+      <Route path='signup' component={Signup} />
     </Route>
   </Router>),
 document.getElementById('content'));
