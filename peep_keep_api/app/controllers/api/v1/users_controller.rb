@@ -1,6 +1,7 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def create
+    put 'create user'
     @user = User.new(create_params)
     if @student.save
       render json: {user: @user}, status: :created
