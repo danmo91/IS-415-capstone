@@ -43,7 +43,6 @@ let Signup_Form = React.createClass({
       error: function (error) {
         var errorResponse = JSON.parse(error.responseText);
         this.setState(errorResponse);
-        console.log('state =>', this.state);
       }.bind(this)
     });
   },

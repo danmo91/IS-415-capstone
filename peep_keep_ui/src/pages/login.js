@@ -1,10 +1,13 @@
 import React from 'react'
+import { History } from 'react-router'
 
 import Auth from './../services/auth'
 import Card from './../components/card/card'
 import Input from './../components/form_elements/floating_label_input/floating_label_input'
 
+
 let Login = React.createClass({
+  mixins: [ History ],
 
   getInitialState() {
     return {
@@ -20,13 +23,14 @@ let Login = React.createClass({
   submitForm(e) {
     e.preventDefault();
 
-    console.log('state =>', this.state );
-
     // login the user
-    Auth.login( this.state.email, this.state.password, () => {
-      console.log('my cool callback');
-    })
-
+    Auth.login( this.state.email, this.state.password, (loggedIn, error) => {
+      if (loggedIn) {
+        this.history.pushState(null, '/home', '');
+      } else {
+        this.setState(JSON.parse(error.responseText));
+      }
+    });
 
   },
 

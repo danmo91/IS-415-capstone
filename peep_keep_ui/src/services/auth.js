@@ -27,7 +27,8 @@ module.exports = {
         if (cb) cb(true);
       },
       error : function (err) {
-        console.log('authentication error!');
+        // run callback (display error message)
+        if (cb) cb (false, err);
       }
     });
 
