@@ -1,8 +1,9 @@
 import React from 'react';
 import Auth from './../../../services/auth.js';
+import { History } from 'react-router'
 
 let Signup_Form = React.createClass({
-
+  mixins: [ History ],
 
   getInitialState: function () {
     return {
@@ -19,7 +20,6 @@ let Signup_Form = React.createClass({
     e.preventDefault();
 
     // build data object form form data
-    var _this = this;
     var _data = {
       user : {
         fname: this.state.fname,
@@ -30,30 +30,22 @@ let Signup_Form = React.createClass({
       }
     }
 
-
-    console.log('_data =>', _data);
-    // make ajax request
     $.ajax({
       url: 'http://localhost:3000/api/v1/users',
       data: _data,
       dataType: 'json',
       method: 'POST',
       success: function (data) {
-        console.log('success signup submitForm');
-        console.log('data =>', data);
-        // login user
         Auth.login(_data.user.email, _data.user.password, function () {
-          // redirect to home
           this.history.pushState(null, '/home', '');
         }.bind(this));
       }.bind(this),
       error: function (error) {
-        console.log('error signup submitForm');
-        console.log('error =>', error);
-      }
+        var errorResponse = JSON.parse(error.responseText);
+        this.setState(errorResponse);
+        console.log('state =>', this.state);
+      }.bind(this)
     });
-
-
   },
 
   handleFirstNameChange: function (e) {this.setState({fname: e.target.value})},

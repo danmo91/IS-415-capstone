@@ -16,8 +16,15 @@ module.exports = {
         }
       },
       success : function (response) {
-        console.log('authentication successful!');
-        console.log('response =>', response);
+        // save user data in local storage
+        localStorage.token = response.auth_token;
+        var user = response.user;
+        localStorage.fname = user.fname;
+        localStorage.lname = user.lname;
+        localStorage.email = user.email;
+        localStorage.id = user.id;
+        // run callback (redirect to home)
+        if (cb) cb(true);
       },
       error : function (err) {
         console.log('authentication error!');
