@@ -38,11 +38,13 @@ let Signup_Form = React.createClass({
       method: 'POST',
       success: function (response) {
         console.log('success signup submitForm');
+        console.log('response =>', response);
         // login user
         // redirect to home
       },
       error: function (error) {
         console.log('error signup submitForm');
+        console.log('error =>', error);
       }
     });
 
