@@ -36,7 +36,7 @@ class Api::V1::BaseController < ApplicationController
 
   def authenticate_user!
     fail NotAuthenticatedError unless user_id_included_in_auth_token?
-    @current_user = Student.find(decoded_auth_token[:user_id])
+    @current_user = User.find(decoded_auth_token[:user_id])
   rescue JWT::ExpiredSignature
     raise AuthenticationTimeoutError
   rescue JWT::VerificationError, JWT::DecodeError
