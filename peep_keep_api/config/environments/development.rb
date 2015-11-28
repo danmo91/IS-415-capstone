@@ -36,6 +36,14 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # Precarious Cross-Origin Settings. Make sure you don't use this in production.
+  config.middleware.insert_before 0, "Rack::Cors" do
+    allow do
+      origins '*' #change to your domain on deployment
+      resource '*', :headers => :any, :methods => [:get, :post, :patch, :delete, :options, :head]
+    end
+  end
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
