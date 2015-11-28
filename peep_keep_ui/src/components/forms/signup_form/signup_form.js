@@ -1,4 +1,5 @@
 import React from 'react';
+import Auth from './../../../services/auth.js';
 
 let Signup_Form = React.createClass({
 
@@ -18,6 +19,7 @@ let Signup_Form = React.createClass({
     e.preventDefault();
 
     // build data object form form data
+    var _this = this;
     var _data = {
       user : {
         fname: this.state.fname,
@@ -36,12 +38,15 @@ let Signup_Form = React.createClass({
       data: _data,
       dataType: 'json',
       method: 'POST',
-      success: function (response) {
+      success: function (data) {
         console.log('success signup submitForm');
-        console.log('response =>', response);
+        console.log('data =>', data);
         // login user
-        // redirect to home
-      },
+        Auth.login(_data.user.email, _data.user.password, function () {
+          // redirect to home
+          this.history.pushState(null, '/home', '');
+        }.bind(this));
+      }.bind(this),
       error: function (error) {
         console.log('error signup submitForm');
         console.log('error =>', error);

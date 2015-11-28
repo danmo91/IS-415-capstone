@@ -9,4 +9,23 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
+  private
+  def authentication_payload(user)
+    return nil unless user && user.id
+    {
+      auth_token: JsonWebToken.encode({ user_id: user.id }),
+      user: {
+        id: user.id,
+        email: user.email,
+        fname: user.fname,
+        lname: user.lname
+      }
+    }
+  end
+
+
+  def create_params
+    params.require(:user).permit(:email, :password)
+  end
+
 end

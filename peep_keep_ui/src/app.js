@@ -7,6 +7,7 @@ import Landing from './pages/landing'
 import Navbar from './components/navbar/navbar'
 import Login from 'pages/login'
 import Signup from 'pages/signup'
+import Home from 'pages/home'
 
 const App = React.createClass({
 
@@ -26,6 +27,7 @@ ReactDOM.render((
       <IndexRoute component={Landing} />
       <Route path='login' component={Login} />
       <Route path='signup' component={Signup} />
+      <Route path='home' component={Home} />
     </Route>
   </Router>),
 document.getElementById('content'));
