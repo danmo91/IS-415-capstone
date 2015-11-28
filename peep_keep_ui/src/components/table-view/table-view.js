@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import './table-view.scss'
 
 let TableView = React.createClass({
@@ -17,9 +18,9 @@ let TableView = React.createClass({
           {
             this.props.data.map(function (data) {
               return (
-                <a href="#" key={data.person.id}>
+                <Link to={'/detail/'+data.person.id} key={data.person.id}>
                   <li>{data.person.fname + ' ' + data.person.lname}</li>
-                </a>
+                </Link>
               )
             })
           }

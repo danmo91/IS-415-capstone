@@ -1,8 +1,8 @@
 import React from 'react';
 import TableView from './../components/table-view/table-view'
 
-// must ensure all of your fields have values
 
+// dummy data
 let DATA = [
   {
     person: {
