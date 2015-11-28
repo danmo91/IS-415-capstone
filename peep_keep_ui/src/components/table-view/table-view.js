@@ -1,4 +1,5 @@
 import React from 'react';
+import './table-view.scss'
 
 let TableView = React.createClass({
 
@@ -12,23 +13,17 @@ let TableView = React.createClass({
 
     return (
       <div className="react-table-view">
-        <table>
-          <tbody>
-            {
-
-              this.props.data.map(function (data) {
-                return (
-                  <tr key={data.id}>
-                    <td>{data.name}</td>
-                  </tr>
-                )
-
-              })
-
-            }
-          </tbody>
-          
-        </table>
+        <ul>
+          {
+            this.props.data.map(function (data) {
+              return (
+                <a href="#" key={data.person.id}>
+                  <li>{data.person.fname + ' ' + data.person.lname}</li>
+                </a>
+              )
+            })
+          }
+        </ul>
       </div>
     )
 
