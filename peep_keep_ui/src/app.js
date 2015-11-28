@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
+import Auth from './services/auth'
+
 
 import Landing from './pages/landing'
 import Navbar from './components/navbar/navbar'
@@ -10,11 +12,30 @@ import Signup from 'pages/signup'
 import Home from 'pages/home'
 
 const App = React.createClass({
+  getInitialState() {
+      return {
+        loggedIn: Auth.loggedIn(),
+        email: Auth.getEmail()
+      }
+  },
+
+  updateAuth(loggedIn, email) {
+    this.setState({
+      loggedIn: loggedIn,
+      email: email
+    })
+  },
+
+  componentWillMount() {
+    Auth.onChange = this.updateAuth;
+  },
 
   render() {
     return (
       <main>
-        <Navbar />
+        <Navbar
+          loggedIn={this.state.loggedIn}
+          email={this.state.email} />
         {this.props.children}
       </main>
     )
