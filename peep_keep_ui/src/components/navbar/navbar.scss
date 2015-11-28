@@ -1,11 +1,19 @@
 .navbar {
-  .link-right {
-    float: right!important;
-  }
-  ul {
-    list-style: none;
+  margin-bottom: 0;
+
+  .navbar {
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
   }
 
-  margin-bottom: 0;
+  .navbar-left {
+    float: left;
+    list-style: none;
+  }
+  .navbar-right {
+    float: right;
+  }
 
 }

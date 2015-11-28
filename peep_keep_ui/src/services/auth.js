@@ -59,8 +59,8 @@ module.exports = {
     return !!localStorage.token;
   },
 
-  getEmail() {
-      return localStorage.email
+  getName() {
+    return localStorage.fname + ' ' + localStorage.lname;
   },
 
   onChange: function () {},

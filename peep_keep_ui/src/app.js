@@ -15,14 +15,13 @@ const App = React.createClass({
   getInitialState() {
       return {
         loggedIn: Auth.loggedIn(),
-        email: Auth.getEmail()
+        name: Auth.getName()
       }
   },
 
-  updateAuth(loggedIn, email) {
+  updateAuth(loggedIn) {
     this.setState({
-      loggedIn: loggedIn,
-      email: email
+      loggedIn: loggedIn
     })
   },
 
@@ -35,7 +34,7 @@ const App = React.createClass({
       <main>
         <Navbar
           loggedIn={this.state.loggedIn}
-          email={this.state.email} />
+          name={this.state.name} />
         {this.props.children}
       </main>
     )

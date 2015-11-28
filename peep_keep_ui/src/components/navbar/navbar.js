@@ -9,7 +9,7 @@ const Navbar = React.createClass ({
   getDefaultProps() {
     return {
       loggedIn: false,
-      email: null
+      name: ''
     }
   },
 
@@ -20,41 +20,57 @@ const Navbar = React.createClass ({
     });
   },
 
-  render: function () {
+  render() {
 
+    let navLeft;
     let navRight;
-    if(this.props.loggedIn) {
-      navRight = (
-        <ul className="navbar-brand link-right">
-          <li>
-            <a href="#" onClick={this.handleLogout}>Log out</a>
-          </li>
-          <li>
-            <Link to="/home">{this.props.email}</Link>
+
+    if (this.props.loggedIn)
+    {
+      navLeft = (
+        <ul className="navbar navbar-left">
+          <li className="dropdown">
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.props.name}<span className="caret"></span></a>
+            <ul className="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" className="divider"></li>
+              <li><a href="#" onClick={this.handleLogout}>Log out</a></li>
+            </ul>
           </li>
         </ul>
       )
-    } else {
+
       navRight = (
-        <ul className="navbar-brand link-right">
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
+        <a className="navbar navbar-right" href="#">New</a>
+      )
+    } else {
+
+      navLeft = (
+        <Link className="navbar navbar-left" to="/" >Brand</Link>
+      )
+
+      navRight = (
+        <Link className="navbar navbar-right" to="/login" >Log in</Link>
       )
     }
 
+
+
     return (
-      <nav className="navbar navbar-default" role="navigation">
-        <div className="container">
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
           <div className="navbar-header">
-            <div className="navbar-brand brand"><Link to="/">Brand</Link></div>
+            {navLeft}
             {navRight}
           </div>
         </div>
       </nav>
     )
+
   }
+
 
 });
 
