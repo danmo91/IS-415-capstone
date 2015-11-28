@@ -16,10 +16,11 @@ module.exports = {
         }
       },
       success : function (response) {
-        console.log('success!');
+        console.log('authentication successful!');
+        console.log('response =>', response);
       },
       error : function (err) {
-        console.log('error!');
+        console.log('authentication error!');
       }
     });
 
