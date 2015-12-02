@@ -22,6 +22,27 @@ const Navbar = React.createClass ({
     });
   },
 
+  handleNewExperience(e) {
+    e.preventDefault();
+    localStorage.experience_id = 'null';
+    // redirect to experience_edit
+    this.history.pushState(null, '/experience_edit', '')
+  },
+  handleDeleteExperience(e) {
+    e.preventDefault();
+
+    // make ajax call to delete experience
+    $.ajax({
+      url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
+      method: 'DELETE',
+      success: (data) => {
+        console.log(data);
+      },
+    });
+    localStorage.experience_id = 'null';
+    this.history.pushState(null, '/detail', '')
+  },
+
   render() {
 
     let navLeft;
@@ -43,7 +64,7 @@ const Navbar = React.createClass ({
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fa fa-ellipsis-v"></i></a>
               <ul className="dropdown-menu dropdown-left">
                 <li><a href="#">Edit</a></li>
-                <li><a href="#">New Experience</a></li>
+                <li><a onClick={this.handleNewExperience} href="#">New Experience</a></li>
               </ul>
             </li>
           </ul>
@@ -64,7 +85,7 @@ const Navbar = React.createClass ({
         )
         navRight = (
           <div className="navbar navbar-right">
-            <Link to="/experience">Done</Link>
+            <a onClick={this.handleDeleteExperience} href="#">Delete</a>
           </div>
 
         )

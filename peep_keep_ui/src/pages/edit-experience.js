@@ -15,26 +15,11 @@ const EditExperience = React.createClass({
     }
   },
 
-  componentDidMount () {
-    // make ajax call to get experience data
-    $.ajax({
-      url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
-      type: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        this.setState({experience: data.experience}, () => {console.log('state =>', this.state)});
-      },
-      error: (err) => {
-        this.history.pushState(null, '/login', '')
-      }
-    })
-  },
-
   render() {
     return (
       <div className="experienece">
         <div className="text-center">
-          <Experience_Form data={this.state.experience} />
+          <Experience_Form />
         </div>
 
       </div>

@@ -7,6 +7,7 @@ let Experience_Form = React.createClass({
   getInitialState() {
     return {
       error: false,
+      person_id: '',
       title: '',
       date: '',
       description: ''
@@ -14,19 +15,22 @@ let Experience_Form = React.createClass({
   },
 
   componentDidMount() {
-    $.ajax({
-      url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
-      type: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        this.setState({title: data.experience.title});
-        this.setState({date: data.experience.date});
-        this.setState({description: data.experience.description});
-      },
-      error: (err) => {
-        this.history.pushState(null, '/login', '')
-      }
-    })
+    let experience_id = localStorage.experience_id;
+    if (experience_id != 'null') {
+      $.ajax({
+        url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+          this.setState({title: data.experience.title});
+          this.setState({date: data.experience.date});
+          this.setState({description: data.experience.description});
+        },
+        error: (err) => {
+          this.history.pushState(null, '/login', '')
+        }
+      })
+    }
   },
 
   submitForm(e) {
@@ -36,30 +40,58 @@ let Experience_Form = React.createClass({
       experience: {
         title: this.state.title,
         date: this.state.date,
-        description: this.state.description
+        description: this.state.description,
+        person_id: localStorage.person_id
       }
     }
 
-    $.ajax({
-      url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
-      method: 'PATCH',
-      dataType: 'json',
-      data: _data,
-      success: (data) => {
-        this.setState({
-          title: data.experience.title,
-          date: data.experience.date,
-          description: data.experience.description
-        });
-        this.history.pushState(null, '/experience', '');
-      }.bind(this),
-      error: (error) => {
-        console.log('error updating experience');
-      }
-    })
+    let experience_id = localStorage.experience_id;
+
+    if (experience_id == 'null') {
+      $.ajax({
+        url: 'http://localhost:3000/api/v1/experience/',
+        method: 'POST',
+        dataType: 'json',
+        data: _data,
+        success: (data) => {
+          this.setState({
+            person_id: data.experience.id,
+            title: data.experience.title,
+            date: data.experience.date,
+            description: data.experience.description
+          });
+          localStorage.experience_id = this.state.person_id;
+          this.history.pushState(null, '/experience', '');
+        }.bind(this),
+        error: (error) => {
+          console.log('error creating experience');
+        }
+      });
+    } else {
+      $.ajax({
+        url: 'http://localhost:3000/api/v1/experience/' + localStorage.experience_id,
+        method: 'PATCH',
+        dataType: 'json',
+        data: _data,
+        success: (data) => {
+          this.setState({
+            id: data.experience.id,
+            title: data.experience.title,
+            date: data.experience.date,
+            description: data.experience.description
+          });
+          this.history.pushState(null, '/experience', '');
+        }.bind(this),
+        error: (error) => {
+          console.log('error updating experience');
+        }
+      });
+    }
+
+
   },
 
-  handleTitleChange(e, cb) {this.setState({title: e.target.value}, () => cb())},
+  handleTitleChange(e) {this.setState({title: e.target.value})},
   handleDateChange(e) {this.setState({date: e.target.value})},
   handleDescriptionChange(e) {this.setState({description: e.target.value})},
 
