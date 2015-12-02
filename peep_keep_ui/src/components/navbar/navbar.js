@@ -54,7 +54,17 @@ const Navbar = React.createClass ({
         )
         navRight = (
           <div className="navbar navbar-right">
-            <a href="#">Edit</a>
+            <Link to="/experience_edit">Edit</Link>
+          </div>
+
+        )
+      } else if (location == '/experience_edit') {
+        navLeft = (
+          <Link className="navbar navbar-left" to="/experience">Back</Link>
+        )
+        navRight = (
+          <div className="navbar navbar-right">
+            <Link to="/experience">Done</Link>
           </div>
 
         )

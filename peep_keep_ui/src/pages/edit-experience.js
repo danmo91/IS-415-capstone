@@ -1,7 +1,8 @@
 import React from 'react';
 import { History } from 'react-router'
+import Experience_Form from './../components/forms/experience_form/experience_form'
 
-const Experience = React.createClass({
+const EditExperience = React.createClass({
   mixins: [ History ],
 
   getInitialState() {
@@ -33,9 +34,7 @@ const Experience = React.createClass({
     return (
       <div className="experienece">
         <div className="text-center">
-          <h1>{this.state.experience.title}</h1>
-          <p className="small">{this.state.experience.date}</p>
-          <p>{this.state.experience.description}</p>
+          <Experience_Form />
         </div>
 
       </div>
@@ -44,4 +43,4 @@ const Experience = React.createClass({
 
 });
 
-export default Experience;
+export default EditExperience;
