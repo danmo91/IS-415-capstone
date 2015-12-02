@@ -1,10 +1,13 @@
 import React from 'react';
+import ExperienceList from './../components/experience-list/experience-list'
+
 
 const Detail = React.createClass({
 
   getInitialState() {
     return {
-      person: {}
+      person: {},
+      experiences: []
     }
   },
 
@@ -14,7 +17,8 @@ const Detail = React.createClass({
       type: 'GET',
       dataType: 'json',
       success: (data) => {
-        this.setState({person: data.person}, () => {console.log(this.state)});
+        this.setState({person: data.person});
+        this.setState({experiences: data.person.experiences});
       },
       error: (err) => {
         this.history.pushState(null, '/login', '')
@@ -23,12 +27,11 @@ const Detail = React.createClass({
   },
 
   render() {
-    console.log('state => ', this.state)
     return (
       <div className="detail text-center">
         <h1>{this.state.person.fname + ' ' + this.state.person.lname}</h1>
         <p>{this.state.person.background}</p>
-
+        <ExperienceList />
 
       </div>
     )
