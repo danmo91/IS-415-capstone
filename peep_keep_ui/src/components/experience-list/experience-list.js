@@ -11,8 +11,9 @@ const ExperienceList = React.createClass({
   },
 
   handleExperienceSelect (e) {
-    e.preventDefault();
-    console.log('experience clicked');
+    // save experience_id in localStorage
+    let experience_id = e.target.attributes['data-id'].value;
+    localStorage.experience_id = experience_id;
   },
 
   render() {
