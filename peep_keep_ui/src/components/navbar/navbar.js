@@ -43,6 +43,28 @@ const Navbar = React.createClass ({
     this.history.pushState(null, '/detail', '')
   },
 
+  handleNewPerson(e) {
+    e.preventDefault();
+    localStorage.person_id = 'null';
+    // redirect to person_edit
+    this.history.pushState(null, '/person_edit', '')
+  },
+
+  handleDeletePerson(e) {
+    e.preventDefault();
+
+    // make ajax call to delete experience
+    $.ajax({
+      url: 'http://localhost:3000/api/v1/person/' + localStorage.person_id,
+      method: 'DELETE',
+      success: (data) => {
+        console.log(data);
+      },
+    });
+    localStorage.experience_id = 'null';
+    this.history.pushState(null, '/home', '')
+  },
+
   render() {
 
     let navLeft;
@@ -63,7 +85,7 @@ const Navbar = React.createClass ({
             <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fa fa-ellipsis-v"></i></a>
               <ul className="dropdown-menu dropdown-left">
-                <li><a href="#">Edit</a></li>
+                <li><Link to="/person_edit">Edit</Link></li>
                 <li><a onClick={this.handleNewExperience} href="#">New Experience</a></li>
               </ul>
             </li>
@@ -87,9 +109,19 @@ const Navbar = React.createClass ({
           <div className="navbar navbar-right">
             <a onClick={this.handleDeleteExperience} href="#">Delete</a>
           </div>
-
         )
-      } else {
+      } else if (location == '/person_edit') {
+        navLeft = (
+          <Link className="navbar navbar-left" to="/detail">Back</Link>
+        )
+        navRight = (
+          <div className="navbar navbar-right">
+            <a onClick={this.handleDeletePerson} href="#">Delete</a>
+          </div>
+        )
+      }
+
+      else {
         navLeft = (
           <ul className="navbar navbar-left">
             <li className="dropdown">
@@ -107,7 +139,7 @@ const Navbar = React.createClass ({
 
         navRight = (
           <div className="navbar navbar-right">
-            <a href="#">New</a>
+            <a onClick={this.handleNewPerson} href="#">New</a>
           </div>
         )
       }

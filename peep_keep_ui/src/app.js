@@ -13,6 +13,7 @@ import Home from './pages/home'
 import Detail from './pages/detail'
 import Experience from './pages/experience'
 import EditExperience from './pages/edit-experience'
+import EditPerson from './pages/edit-person'
 
 const App = React.createClass({
   getInitialState() {
@@ -54,6 +55,7 @@ ReactDOM.render((
       <Route path='detail' component={Detail} />
       <Route path='experience' component={Experience} />
       <Route path='experience_edit' component={EditExperience} />
+      <Route path='person_edit' component={EditPerson} />
     </Route>
   </Router>),
 document.getElementById('content'));
