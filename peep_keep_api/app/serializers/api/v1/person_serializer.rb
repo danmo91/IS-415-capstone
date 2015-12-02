@@ -4,5 +4,5 @@ class Api::V1::PersonSerializer < Api::V1::BaseSerializer
              :lname,
              :background
 
-  # has_many :experiences
+  has_many :experiences
 end
