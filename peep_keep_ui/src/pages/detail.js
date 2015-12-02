@@ -1,32 +1,25 @@
 import React from 'react';
 
-let DATA = {
-  person: {
-    id: '2',
-    fname: 'Robert',
-    lname: 'Morain',
-    background: 'Funniest person on earth',
-    experiences: [
-      {
-        title: 'The Good Dinosaur',
-        date: '11-28-2015',
-        description: 'What did you learn?'
-      },
-      {
-        title: 'Two Jacks Pizza',
-        date: '11-28-2015',
-        description: 'This is our favorite pizza place.  It is the best!'
-      },
-    ]
-  }
-}
-
 const Detail = React.createClass({
 
   getInitialState() {
     return {
-      person: DATA.person
+      person: {}
     }
+  },
+
+  componentDidMount() {
+    $.ajax({
+      url: 'http://localhost:3000/api/v1/person/' + localStorage.person_id,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        this.setState({person: data.person}, () => {console.log(this.state)});
+      },
+      error: (err) => {
+        this.history.pushState(null, '/login', '')
+      }
+    })
   },
 
   render() {
