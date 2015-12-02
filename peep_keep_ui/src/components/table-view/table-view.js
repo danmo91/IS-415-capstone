@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import './table-view.scss'
 
 let TableView = React.createClass({
