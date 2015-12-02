@@ -50,8 +50,28 @@ const Home = React.createClass({
 
   getInitialState() {
     return {
-      people : []
+      user : {},
+      people_list : []
     }
+  },
+
+  componentDidMount() {
+    // make ajax request for this users people
+    $.ajax({
+          url: 'http://localhost:3000/api/v1/users/' + localStorage.id,
+          type: 'GET',
+          dataType: 'json',
+          success: (data) => {
+            this.setState({user: data.user}, () => {console.log(this.state)});
+          },
+          error: (err) => {
+            this.history.pushState(null, '/login', '')
+          }
+        })
+
+
+
+
   },
 
   render: function () {

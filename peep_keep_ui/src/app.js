@@ -10,6 +10,7 @@ import Navbar from './components/navbar/navbar'
 import Login from './pages/login'
 import Signup from './pages/signup'
 import Home from './pages/home'
+import Detail from './pages/detail'
 
 const App = React.createClass({
   getInitialState() {
@@ -48,6 +49,7 @@ ReactDOM.render((
       <Route path='login' component={Login} />
       <Route path='signup' component={Signup} />
       <Route path='home' component={Home} />
+      <Route path='detail/:id' component={Detail} />
     </Route>
   </Router>),
 document.getElementById('content'));
