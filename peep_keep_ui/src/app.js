@@ -49,7 +49,7 @@ ReactDOM.render((
       <Route path='login' component={Login} />
       <Route path='signup' component={Signup} />
       <Route path='home' component={Home} />
-      <Route path='detail/:id' component={Detail} />
+      <Route path='detail' component={Detail} />
     </Route>
   </Router>),
 document.getElementById('content'));

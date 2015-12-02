@@ -10,19 +10,25 @@ let TableView = React.createClass({
     }
   },
 
-  render () {
+  handlePersonSelect(e) {
+    // save id in local storage
+    let person_id = e.target.attributes['data-id'].value;
+    localStorage.person_id = person_id;
 
+  },
+
+  render () {
     return (
       <div className="react-table-view">
         <ul>
           {
             this.props.data.map(function (data) {
               return (
-                <Link to={'/detail/'+data.person.id} key={data.person.id}>
-                  <li>{data.person.fname + ' ' + data.person.lname}</li>
+                <Link onClick={this.handlePersonSelect} to='/detail' key={data.id}>
+                  <li data-id={data.id} >{data.fname + ' ' + data.lname}</li>
                 </Link>
               )
-            })
+            }.bind(this))
           }
         </ul>
       </div>

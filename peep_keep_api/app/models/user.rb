@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_secure_password
   before_create :set_auth_token
 
+  # associations
+  has_many :people
+
   validates :email, presence: true, uniqueness: true
   validates :fname, presence: true
   validates :lname, presence: true

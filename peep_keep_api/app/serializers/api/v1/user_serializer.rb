@@ -4,5 +4,5 @@ class Api::V1::UserSerializer < Api::V1::BaseSerializer
              :lname,
              :email
 
-  # has_many :persons
+  has_many :people
 end
