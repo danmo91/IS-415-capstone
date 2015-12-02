@@ -22,7 +22,7 @@ const EditExperience = React.createClass({
       type: 'GET',
       dataType: 'json',
       success: (data) => {
-        this.setState({experience: data.experience}, () => {console.log(this.state)});
+        this.setState({experience: data.experience}, () => {console.log('state =>', this.state)});
       },
       error: (err) => {
         this.history.pushState(null, '/login', '')
@@ -34,7 +34,7 @@ const EditExperience = React.createClass({
     return (
       <div className="experienece">
         <div className="text-center">
-          <Experience_Form />
+          <Experience_Form data={this.state.experience} />
         </div>
 
       </div>

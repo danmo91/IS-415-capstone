@@ -21,7 +21,7 @@ const Experience = React.createClass({
       type: 'GET',
       dataType: 'json',
       success: (data) => {
-        this.setState({experience: data.experience}, () => {console.log(this.state)});
+        this.setState({experience: data.experience});
       },
       error: (err) => {
         this.history.pushState(null, '/login', '')
