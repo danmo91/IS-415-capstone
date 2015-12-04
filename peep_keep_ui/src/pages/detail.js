@@ -14,19 +14,21 @@ const Detail = React.createClass({
     }
   },
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log('component will mount');
     $.ajax({
       url: 'http://localhost:3000/api/v1/person/' + localStorage.person_id,
       type: 'GET',
       dataType: 'json',
       success: (data) => {
-        this.setState({person: data.person});
-        this.setState({experiences: data.person.experiences});
+        this.setState({person: data.person, experiences: data.person.experiences});
       },
       error: (err) => {
         this.history.pushState(null, '/login', '')
       }
-    })
+    });
+    console.log('state =>', this.state);
+
   },
 
   render() {
@@ -35,7 +37,6 @@ const Detail = React.createClass({
         <h1>{this.state.person.fname + ' ' + this.state.person.lname}</h1>
         <p>{this.state.person.background}</p>
         <ExperienceList data={this.state.experiences} />
-
       </div>
     )
   }

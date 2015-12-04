@@ -77,13 +77,14 @@ const Navbar = React.createClass ({
     {
 
       if (location == '/detail') {
+        console.log('rendering nav');
         navLeft = (
           <Link className="navbar navbar-left" to="/home">Back</Link>
         )
         navRight = (
           <ul className="navbar navbar-right">
             <li className="dropdown">
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fa fa-ellipsis-v"></i></a>
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i className="fa fa-bars"></i></a>
               <ul className="dropdown-menu dropdown-left">
                 <li><Link to="/person_edit">Edit</Link></li>
                 <li><a onClick={this.handleNewExperience} href="#">New Experience</a></li>

@@ -11,7 +11,7 @@ const Home = React.createClass({
     }
   },
 
-  componentDidMount() {
+  componentWillMount() {
     // make ajax request for this users people
     $.ajax({
           url: 'http://localhost:3000/api/v1/users/' + localStorage.id,
@@ -20,7 +20,6 @@ const Home = React.createClass({
           success: (data) => {
             this.setState({user: data.user});
             this.setState({people: this.state.user.people})
-            console.log('state =>', this.state);
           },
           error: (err) => {
             this.history.pushState(null, '/login', '')
