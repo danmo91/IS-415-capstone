@@ -1,22 +1,46 @@
+@import './colors.scss';
+
 .landing {
 
   // landing styles go here
+  .opacity {
+    z-index: 50;
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(209, 199, 190, 0.65);
+    // opacity: .6;
+  }
+
   h1{
     font-size: 26px;
+    font-weight: 200;
     padding: 0px 15px 0 15px;
   }
 
   p {
-    font-size: 16px;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
   }
 
   #hero {
     padding: 60px 15px 0 15px;
     text-align: center;
+    position: relative;
+    z-index: 100;
   }
 
   .description {
     padding: 25px 35px;
+  }
+
+  .btn-red {
+    color: #fff;
+    background-color: $red;
   }
 
 

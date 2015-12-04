@@ -31,7 +31,7 @@ module.exports = {
       {test: /\.css$/, loader: 'style!css'},
       {test: /\.scss$/, loader: 'style!css!sass'},
       {test: /\.sass$/, loader: 'style!css!sass'},
-      {test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192'}
+      {test: /\.(png|jpg|svg|jpeg)$/, loader: 'url-loader?limit=8192'}
     ]
   },
   plugins: [
