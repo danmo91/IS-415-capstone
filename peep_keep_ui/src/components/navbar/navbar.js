@@ -160,14 +160,16 @@ const Navbar = React.createClass ({
 
 
     return (
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            {navLeft}
-            {navRight}
+      <div className="menu">
+        <nav className="navbar navbar-landing">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              {navLeft}
+              {navRight}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     )
 
   }
