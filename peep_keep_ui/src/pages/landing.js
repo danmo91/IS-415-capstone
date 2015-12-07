@@ -2,8 +2,6 @@ import React from 'react';
 import {RouteHandler, Link} from 'react-router';
 import './../styles/landing.scss'
 import Image from './../images/cover.jpeg';
-import LandingNavbar from './../components/landing_navbar/landing_navbar'
-
 const Landing = React.createClass({
 
   render: function () {
@@ -24,8 +22,6 @@ const Landing = React.createClass({
     };
 
     return(
-      <div>
-        <LandingNavbar />
         <div className="landing">
           <div className="background">
             <div className="cover-photo" style={divStyle}></div>
@@ -41,7 +37,6 @@ const Landing = React.createClass({
             </div>
           </div>
         </div>
-      </div>
     )
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import TableView from './../components/table-view/table-view'
-
+import './../styles/home.scss'
 
 const Home = React.createClass({
 
@@ -31,6 +31,11 @@ const Home = React.createClass({
   render: function () {
     return(
       <div className="home">
+        <div className="hero text-center">
+          <h1>{this.state.user.fname + " " + this.state.user.lname}</h1>
+          <img src={require("./../images/profile.jpg")} alt="profile-pic"/>
+        </div>
+
         <TableView data={this.state.people} />
       </div>
     )

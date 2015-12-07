@@ -36,6 +36,9 @@ const App = React.createClass({
   render() {
     return (
       <main>
+        <Navbar
+          loggedIn= {this.state.loggedIn}
+          name= {this.state.name}/>
         {this.props.children}
       </main>
     )
