@@ -27,7 +27,6 @@ const Detail = React.createClass({
         this.history.pushState(null, '/login', '')
       }
     });
-    console.log('state =>', this.state);
 
   },
 

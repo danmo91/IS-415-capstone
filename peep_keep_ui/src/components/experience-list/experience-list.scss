@@ -4,6 +4,7 @@
   font-size: 150%;
   font-weight: 300;
   line-height: 1.5;
+  text-align: left;
 
   ul {
     list-style: none;
@@ -31,12 +32,20 @@
     color: #333;
   }
 
-  .left {
+  .date {
     float:left;
+    padding-right: 10px;
   }
 
   .right {
     text-align:right;
+  }
+
+  .small {
+    font-family: HelveticaNeue-Light;
+    font-size: 12px;
+    color: rgba(68,61,54,0.71);
+    line-height: 15px;
   }
 
 }
