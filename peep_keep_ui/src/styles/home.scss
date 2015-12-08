@@ -1,3 +1,8 @@
+
+body {
+  background-color: #F4EEE4;
+  color: #443D37;
+}
 .home {
 
   h1 {
@@ -6,8 +11,11 @@
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #443D37;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
   .hero {

@@ -4,6 +4,7 @@ import './table-view.scss'
 
 let TableView = React.createClass({
 
+
   getInitialState () {
     return {
       data: this.props.data

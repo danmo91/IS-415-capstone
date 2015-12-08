@@ -9,8 +9,7 @@
     padding: 0;
     color:#666;
     text-shadow: 1px 1px 0px #fff;
-    background: #eaebec;
-    width:100%;
+    margin: 10px;
   }
 
   li {
@@ -18,8 +17,12 @@
     border-top: 1px solid #ffffff;
     border-bottom: 1px solid #e0e0e0;
     border-left: 1px solid #e0e0e0;
-    background: #fff;
     cursor: pointer;
+    background: #fff;
+    margin: 5px;
+    border-radius: 6px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
   }
 
   a, a:hover, a:visited {

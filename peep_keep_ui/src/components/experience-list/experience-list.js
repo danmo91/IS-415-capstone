@@ -28,7 +28,7 @@ const ExperienceList = React.createClass({
                     <div className="left">
                       {data.title}
                     </div>
-                    <div className="right small">
+                    <div className="right">
                       {data.date}
                     </div>
                   </li>
