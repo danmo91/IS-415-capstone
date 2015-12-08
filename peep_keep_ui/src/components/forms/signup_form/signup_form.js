@@ -77,7 +77,7 @@ let Signup_Form = React.createClass({
                 <input className="form-control" type="password" placeholder="Confirm Password" onChange={this.handlePasswordConfirmationChange} value={this.state.password_confirmation} />
               </div>
               <div className="col-md-4">
-                <button type="submit" name="submit" className="btn btn-primary">Sign up</button>
+                <button type="submit" name="submit" className="btn btn-red">Sign up</button>
               </div>
               <div className="col-md-8">
                 <p className="small">By submitting this form, you agree to our Terms and Conditions.</p>

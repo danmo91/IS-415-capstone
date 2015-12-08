@@ -28,7 +28,7 @@
     box-shadow: none;
 
     // Default color
-    border-bottom: 2px solid lighten($blue, 25%);
+    border-bottom: 2px solid lighten($peep-orange, 25%);
     &:focus, &:active { border-bottom: 2px solid lighten($lure-blue, 5%); }
 
     &.red, &.error {

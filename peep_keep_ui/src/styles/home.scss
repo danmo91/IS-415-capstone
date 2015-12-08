@@ -3,12 +3,17 @@ body {
   background-color: #F4EEE4;
   color: #443D37;
 }
+h1 {
+  font-family: HelveticaNeue-Light;
+  color: #443D37;
+  margin-top: 30px
+}
+.btn-red {
+  color: #fff;
+  background-color: #C8442F;
+  border: none;
+}
 .home {
-
-  h1 {
-    font-family: HelveticaNeue-Light;
-    color: #443D37;
-  }
 
   img {
     width: 150px;

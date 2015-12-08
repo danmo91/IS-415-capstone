@@ -1,6 +1,5 @@
 import React from 'react'
 import { History } from 'react-router'
-
 import Auth from './../services/auth'
 import Card from './../components/card/card'
 import Input from './../components/form_elements/floating_label_input/floating_label_input'
@@ -61,7 +60,7 @@ let Login = React.createClass({
                         type="password" />
                     </div>
                     <div className="form-group col-xs-12">
-                      <input type="submit" className="btn btn-primary" value="Login" />
+                      <input type="submit" className="btn btn-primary btn-red" value="Login" />
                     </div>
                   </form>
                 </div>
