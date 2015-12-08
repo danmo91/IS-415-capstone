@@ -149,7 +149,7 @@ const Navbar = React.createClass ({
     } else {
 
       navLeft = (
-        <Link className="navbar navbar-left" to="/" >Brand</Link>
+        <Link className="navbar navbar-left" to="/" >Peep Keep</Link>
       )
 
       navRight = (

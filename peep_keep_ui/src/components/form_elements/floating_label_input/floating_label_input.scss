@@ -29,7 +29,7 @@
 
     // Default color
     border-bottom: 2px solid lighten($peep-orange, 25%);
-    &:focus, &:active { border-bottom: 2px solid lighten($lure-blue, 5%); }
+    &:focus, &:active { border-bottom: 2px solid lighten($peep-orange, 5%); }
 
     &.red, &.error {
       border-bottom: 2px solid lighten($red, 20%);
